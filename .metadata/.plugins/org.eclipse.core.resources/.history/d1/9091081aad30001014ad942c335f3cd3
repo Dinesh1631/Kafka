@@ -1,0 +1,14 @@
+package com.Kafka;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListener;
+
+public class KafkaConsumer {
+
+	private Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
+	@KafkaListener(topics="Dinesh" ,groupId="group-1")
+	public void consume(String message) {
+		logger.info("The consumed message is {}",message);
+	}
+}

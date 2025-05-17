@@ -1,0 +1,12 @@
+package CompletableFuture;
+
+public class FutureDemo1 {
+	public static void main(String args[]) {
+		System.out.println("Started Main method ..........");
+	}
+	public String getName() throws InterruptedException {
+		Thread.sleep(2000);
+		return "Dinesh";
+	}
+
+}

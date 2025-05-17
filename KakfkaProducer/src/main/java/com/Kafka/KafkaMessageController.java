@@ -1,0 +1,36 @@
+package com.Kafka;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class KafkaMessageController {
+    @Autowired
+	private KafkaMessagePublisher publisher;
+
+	@PostMapping("/post/{message}")
+	public ResponseEntity<?> kafkaMessageSent(@PathVariable String message) {
+		try {
+			for(int i =1;i<100;i++) {
+			publisher.sendMessage(message +" "+ i);
+			}
+			return ResponseEntity.ok("Message sent Successfully ..........");
+		} catch (Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+
+	}
+
+	@PostMapping("/event")
+	public ResponseEntity<?> kafkaMessageEvent(@RequestBody PersonDTPO person) {
+		
+			publisher.sendEventMessage(person);
+			return ResponseEntity.ok("DTO sent Successfully");
+	}
+
+}

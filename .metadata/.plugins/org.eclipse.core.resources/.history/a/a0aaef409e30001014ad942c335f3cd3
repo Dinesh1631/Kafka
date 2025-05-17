@@ -1,0 +1,5 @@
+package com.Kafka;
+
+public class KafkaMessagePublisher {
+
+}
