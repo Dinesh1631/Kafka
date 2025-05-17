@@ -1,0 +1,24 @@
+package com.Kafka;
+
+import java.util.concurrent.CompletableFuture;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.stereotype.Service;
+
+@Service
+public class KafkaMessagePublisher {
+	@Autowired
+	private KafkaTemplate<String, Object> template;
+	
+	public void sendMessage(String message)
+	{
+		CompletableFuture<SendResult<String, Object>> future = template.send("Dinesh-Topic_2",message);
+		future.whenComplete((result ,ex )->{
+			if(ex!=null) System.out.println("The is issue in sending message : " + ex.getMessage());
+			else System.out.println("Message is sent "+ message +" and result is "+ result.getRecordMetadata().offset() );
+		});
+		System.out.println("The mesaage sent successfully");
+	}
+}

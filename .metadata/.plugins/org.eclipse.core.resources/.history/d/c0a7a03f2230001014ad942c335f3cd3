@@ -1,0 +1,19 @@
+package CompletableFuture;
+
+public class FutureDemo1 {
+	public static void main(String args[]) throws InterruptedException {
+		System.out.println("Started Main method ..........");
+		System.out.println(getFirstName());
+		System.out.println(getLastName());
+	}
+	public static String getFirstName() throws InterruptedException {
+		Thread.sleep(2000);
+		return "Dinesh";
+	}
+	
+	public static String getLastName() throws InterruptedException {
+		Thread.sleep(1000);
+		return "Golla";
+	}
+
+}

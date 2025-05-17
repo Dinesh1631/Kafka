@@ -1,0 +1,18 @@
+package com.Kafka;
+
+import java.util.concurrent.CompletableFuture;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+
+
+public class KafkaMessagePublisher {
+	@Autowired
+	private KafkaTemplate<String, Object> template;
+	
+	public void sendMessage(String message)
+	{
+		CompletableFuture<SendResult<String, Object>> future = template.send("Dinesh", "FirstTopic MEssage");
+	}
+}

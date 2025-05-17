@@ -1,0 +1,18 @@
+package CompletableFuture;
+
+public class CompletableFutureDemo {
+	public String getFirstName() throws InterruptedException {
+		Thread.sleep(4000);
+		return "Dinesh";
+	}
+
+	public String getLastName() throws InterruptedException {
+		Thread.sleep(5000);
+		return "Golla";
+	}
+  public static void main(String args[])
+  {
+	  CompletableFutureDemo future = new CompletableFutureDemo();
+	 
+  }
+}

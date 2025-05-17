@@ -1,0 +1,10 @@
+package CompletableFuture;
+
+public class FutureDemo1 {
+	
+	public String getName() throws InterruptedException {
+		Thread.sleep(2000);
+		return "Dinesh";
+	}
+
+}

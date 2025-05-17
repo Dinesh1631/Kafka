@@ -1,0 +1,21 @@
+package CompletableFuture;
+
+public class FutureDemo1 {
+	public static void main(String args[]) throws InterruptedException {
+		long start = System.currentTimeMillis();
+		System.out.println("Started Main method ..........");
+		System.out.println(getFirstName()+" "+getLastName());
+		System.out.println(getLastName());
+		System.out.println("The time taken to finish the oprition : "  +(System.currentTimeMillis()-start));
+	}
+	public static String getFirstName() throws InterruptedException {
+		Thread.sleep(4000);
+		return "Dinesh";
+	}
+	
+	public static String getLastName() throws InterruptedException {
+		Thread.sleep(5000);
+		return "Golla";
+	}
+
+}

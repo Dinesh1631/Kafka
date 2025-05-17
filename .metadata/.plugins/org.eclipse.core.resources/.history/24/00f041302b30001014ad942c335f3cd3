@@ -1,0 +1,29 @@
+package CompletableFuture;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.function.Supplier;
+
+public class CompletableFutureDemo {
+	public String getFirstName() {
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "Dinesh";
+	}
+
+	public String getLastName() throws InterruptedException {
+		Thread.sleep(5000);
+		return "Golla";
+	}
+
+	public static void main(String args[]) throws InterruptedException, ExecutionException {
+		CompletableFutureDemo future = new CompletableFutureDemo();
+		CompletableFuture<String> callableFuture = CompletableFuture.supplyAsync(()-> future.getFirstName());
+		System.out.println(callableFuture.get());
+		System.out.println("Done");
+	}
+}
